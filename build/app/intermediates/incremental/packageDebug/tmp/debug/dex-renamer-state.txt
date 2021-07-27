@@ -1,4 +1,4 @@
-#Tue Jan 12 10:02:55 COT 2021
-base.0=/Users/code.bryanc/DATA/Flutter_projects/flutter_components/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Tue Jul 27 09:33:55 COT 2021
+base.0=/Users/codebryanc/DATA/flutter_components/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
