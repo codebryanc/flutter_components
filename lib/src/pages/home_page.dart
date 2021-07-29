@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_components/src/providers/menu_provider.dart';
+import 'package:flutter_components/src/utils/icono_string_util.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -12,14 +13,63 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _lista() {
-    print(menuProvider.opciones);
+    
+    // For validate if the information 'opciones' is already loaded!
+    // menuProvider.cargarData().then((listItems) {
+    //   print('_lista widget in home_page.dart');
+    //   print(listItems);
+    // });
 
-    return ListView(
-      children: _listaItems(),
+    // Estados de un Future Builder =>
+    // Pidiendo información, Cuando se resuelve, Cuando hay un error.
+
+    return FutureBuilder(
+      future: menuProvider.cargarData(),
+      initialData: [], // This argument is optional
+      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+        // For know the information is loading!
+        print('builder');
+
+        if(snapshot.hasData) {
+          // (Data obtenida) For know what is the data!
+          print(snapshot.data);
+
+          // For construct this widget
+          return ListView(
+            children: _listaItems(snapshot.data),
+          );
+        }
+        else if(snapshot.hasError) {
+          // (Error obtenido) For view the error in menu_provider.dart component
+          print(snapshot.error);
+        }
+        else {
+          // (Pidiendo data) When the information its not loaded yet / or loading
+          print('Loading information');
+        }
+      },
     );
   }
 
-  List<Widget> _listaItems() {
-    return [ListTile(title: Text('Hola mundo')), Divider(), ListTile(title: Text('Hola mundo')), Divider(), ListTile(title: Text('Hola mundo'))];
+  List<Widget> _listaItems(List<dynamic> data) {
+    // return [ListTile(title: Text('Hola mundo')), Divider(), ListTile(title: Text('Hola mundo')), Divider(), ListTile(title: Text('Hola mundo'))];
+
+    final List<Widget> options = [];
+
+    data.forEach((option) {
+      final widgetTemp = ListTile(
+        title: Text(option['texto']),
+        leading: getIcon(option['icon']),
+        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue),
+        onTap: () {
+
+        },
+      );
+      
+      options..add(widgetTemp)
+             ..add(Divider());
+    });
+
+    return options;
   }
 }

@@ -1,4 +1,4 @@
-Para que esto funcione debe tener un cambio en el archivo pubspec.yaml
+Para que esto funcione debe tener un cambio en el archivo pubspec.yaml (Esto es similar al package.json en un proyecto de node.js)
 
 Las tabulaciones tambien son importantes aquí en este archivo.
 
