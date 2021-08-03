@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         '/'       : (BuildContext context) => HomePage(),
         'alert'   : (BuildContext context) => AlertPage(),
         'avatar'  : (BuildContext context) => AvatarPage(),
-      }
+      },
     );
   }
 }
