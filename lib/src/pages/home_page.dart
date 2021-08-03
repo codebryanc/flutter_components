@@ -70,22 +70,23 @@ class HomePage extends StatelessWidget {
         onTap: () {
           // i want navigate to other pages
           
-          final route = MaterialPageRoute(
-            builder: (context) {
-              if(option['ruta'] == 'alert') {
-                return AlertPage();
-              }
-              else if(option['ruta'] == 'avatar') {
-                return AvatarPage();
-              }
-              else {
-                return null;
-              }
-            }
-          );
+          // final route = MaterialPageRoute(
+          //   builder: (context) {
+          //     if(option['ruta'] == 'alert') {
+          //       return AlertPage();
+          //     }
+          //     else if(option['ruta'] == 'avatar') {
+          //       return AvatarPage();
+          //     }
+          //     else {
+          //       return null;
+          //     }
+          //   }
+          // );
 
-          Navigator.push(context, route);
+          // Navigator.push(context, route);
 
+          Navigator.pushNamed(context, option['ruta']);
 
         },
       );
