@@ -12,7 +12,9 @@ class CardPage extends StatelessWidget {
         padding: EdgeInsets.all(25),
         // padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
         children: <Widget>[
-          _cardTipo1()
+          _cardTipo1(),
+          SizedBox(height: 45.0),
+          _cardTipo2()
         ],
       ),
     );
@@ -40,6 +42,33 @@ class CardPage extends StatelessWidget {
               )
             ],
           )
+        ],
+      ),
+    );
+  }
+
+  Widget _cardTipo2() {
+    return Card(
+      child: Column(
+        children: <Widget>[
+
+          FadeInImage(            
+            image: NetworkImage('https://predios.com.co/wp-content/uploads/2021/06/travel-landscape-01.jpg'),
+            placeholder: AssetImage('assets/jar-loading.gif'),
+            // Podemos colocar un duration diferente y esto nos ayuda a cambiar el tiempo de entrada de la imagen
+            fadeInDuration: Duration( milliseconds: 2000),
+            // la imagen se mueve al aparecer, para esto colocamos un espacio / y un fit para saber como se ocupa el espacio que tiene
+            height: 300.0,
+            fit: BoxFit.contain
+          ),
+
+          // Image(
+          //   image: NetworkImage('https://predios.com.co/wp-content/uploads/2021/06/travel-landscape-01.jpg'),
+          // ),
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Text('no se que poner?')
+          )            
         ],
       ),
     );
