@@ -45,3 +45,7 @@ Thumbs.db
 
 # Build
 /build
+
+# Dart
+/.dart_tool
+/build
